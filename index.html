@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>UniSmart AI Management System</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist:wght@300;400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    
+    <!-- Custom Style Sheet -->
+    <link href="/style.css" rel="stylesheet"/>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "var(--color-primary)",
+                        "primary-container": "var(--color-primary-container)",
+                        "secondary": "var(--color-secondary)",
+                        "secondary-container": "var(--color-secondary-container)",
+                        "tertiary": "var(--color-tertiary)",
+                        "tertiary-container": "var(--color-tertiary-container)",
+                        "background": "var(--color-background)",
+                        "surface": "var(--color-surface)",
+                        "on-surface": "var(--color-on-surface)",
+                        "on-surface-variant": "var(--color-on-surface-variant)",
+                        "outline": "var(--color-outline)",
+                        "outline-variant": "var(--color-outline-variant)",
+                        "surface-container-low": "var(--color-surface-container-low)",
+                        "surface-container": "var(--color-surface-container)",
+                        "surface-container-high": "var(--color-surface-container-high)",
+                        "surface-container-highest": "var(--color-surface-container-highest)",
+                        "surface-container-lowest": "var(--color-surface-container-lowest)",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#c3c0ff",
+                        "inverse-surface": "#2e3132",
+                        "inverse-on-surface": "#f0f1f2"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "container-max": "1440px",
+                        "sm": "12px",
+                        "sidebar-width": "280px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "2xl": "48px",
+                        "lg": "24px",
+                        "xs": "8px",
+                        "3xl": "64px",
+                        "base": "4px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["var(--font-headline)"],
+                        "headline-lg-mobile": ["var(--font-headline)"],
+                        "body-sm": ["var(--font-body)"],
+                        "display-lg": ["var(--font-headline)"],
+                        "headline-lg": ["var(--font-headline)"],
+                        "body-lg": ["var(--font-body)"],
+                        "body-md": ["var(--font-body)"],
+                        "label-md": ["var(--font-label)"],
+                        "label-sm": ["var(--font-label)"]
+                    },
+                    fontSize: {
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-background text-on-surface select-none">
+    <!-- Mounting point of the SPA -->
+    <div id="app" class="min-h-screen flex flex-col">
+        <!-- Root Loader -->
+        <div class="flex items-center justify-center min-h-screen bg-background text-primary">
+            <div class="flex flex-col items-center gap-4">
+                <span class="material-symbols-outlined text-5xl animate-spin">sync</span>
+                <span class="font-label-md text-lg tracking-wide">Initializing UniSmart AI...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core SPA logic -->
+    <script type="module" src="/js/app.js"></script>
+</body>
+</html>

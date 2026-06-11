@@ -1,0 +1,270 @@
+<!-- Blurred Gradient Background Layer -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+  <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-primary/10 blur-[120px]"></div>
+  <div class="absolute -bottom-[10%] -right-[5%] w-[50%] h-[50%] rounded-full bg-secondary/10 blur-[120px]"></div>
+</div>
+
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center h-16 px-lg sticky top-0 z-40 bg-surface/80 backdrop-blur-md border-b border-outline-variant relative z-10">
+  <div class="flex items-center gap-xs">
+    <a href="#/" class="font-headline-md text-headline-md font-bold text-primary">UniSmart AI</a>
+  </div>
+  <div class="hidden md:flex items-center gap-xl">
+    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#/#features">Features</a>
+    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#/#ai-center">AI Risk Center</a>
+    <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#/#reports">Reports</a>
+    <a class="font-label-md text-label-md text-primary font-bold transition-colors" href="#/pricing">Pricing</a>
+  </div>
+  <div class="flex items-center gap-md">
+    <a href="#/login-admin" class="font-label-md text-label-md text-primary font-bold hover:underline">Admin Login</a>
+    <a href="#/login-faculty" class="px-lg py-sm bg-primary text-white rounded-xl font-label-md text-label-md hover:opacity-90 transition-opacity">Faculty Login</a>
+  </div>
+</nav>
+
+<main class="relative z-10 py-2xl px-lg max-w-container-max mx-auto">
+  <div class="text-center mb-3xl">
+    <span class="inline-block px-md py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm mb-md uppercase tracking-wider">Flexible Pricing</span>
+    <h1 class="font-display-lg text-display-lg text-on-surface mb-md leading-tight font-bold">
+      Simple, Transparent <span class="text-primary">Plans</span>
+    </h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+      Whether you are testing the waters with a temporary trial or deploying enterprise-grade student analytics across multiple campuses, we have the right fit.
+    </p>
+  </div>
+
+  <!-- Pricing Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2xl max-w-4xl mx-auto items-stretch">
+    
+    <!-- 2 Days Trial Card -->
+    <div class="glass-card rounded-[32px] p-xl flex flex-col justify-between border border-outline-variant hover:border-primary/40 transition-all duration-300 relative overflow-hidden group">
+      <div>
+        <div class="flex justify-between items-start mb-lg">
+          <div>
+            <span class="px-md py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-wider">Short-term Trial</span>
+            <h3 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-sm">Academic Trial</h3>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-lg">hourglass_empty</span>
+          </div>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mb-xl leading-relaxed">
+          Perfect for evaluating prediction mechanics, SMTP custom alerts, and sample report generation on small datasets.
+        </p>
+        <div class="mb-2xl">
+          <div class="flex items-baseline gap-xs">
+            <span class="font-display-lg text-display-lg font-extrabold text-primary">$30</span>
+            <span class="text-on-surface-variant font-label-md text-label-md">/ 2-day trial</span>
+          </div>
+          <p class="text-xs text-outline mt-1">Single upfront fee. No recurring billing.</p>
+        </div>
+
+        <ul class="space-y-md mb-2xl">
+          <li class="flex items-center gap-md font-body-sm text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+            <span>2 days full trial access</span>
+          </li>
+          <li class="flex items-center gap-md font-body-sm text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+            <span>Up to 10 Faculty members</span>
+          </li>
+          <li class="flex items-center gap-md font-body-sm text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+            <span>Up to 100 Student profiles</span>
+          </li>
+          <li class="flex items-center gap-md font-body-sm text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+            <span>Simulated 2FA & OTP security</span>
+          </li>
+          <li class="flex items-center gap-md font-body-sm text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+            <span>Standard PDF/Excel exports</span>
+          </li>
+        </ul>
+      </div>
+
+      <button id="buy-trial-btn" class="w-full py-md bg-primary text-white font-label-md text-label-md rounded-2xl shadow-lg shadow-primary/15 hover:bg-primary-container hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2">
+        Start 2-Day Trial
+        <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+      </button>
+    </div>
+
+    <!-- Business / Enterprise Use Card -->
+    <div class="glass-card rounded-[32px] p-xl flex flex-col justify-between border-2 border-primary/20 hover:border-primary transition-all duration-300 relative overflow-hidden bg-primary/[0.02] group">
+      <!-- Popular Badge -->
+      <div class="absolute top-4 right-4 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+        Enterprise
+      </div>
+
+      <div>
+        <div class="flex justify-between items-start mb-lg">
+          <div>
+            <span class="px-md py-1 bg-secondary/10 text-secondary rounded-full text-xs font-bold uppercase tracking-wider">Business Use</span>
+            <h3 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-sm">Institutional Enterprise</h3>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center">
+            <span class="material-symbols-outlined text-lg">corporate_fare</span>
+          </div>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mb-xl leading-relaxed">
+          Full-scale implementation supporting multiple campuses, direct integrations with academic registers, and custom AI prediction models.
+        </p>
+        <div class="mb-2xl">
+          <div class="flex items-baseline gap-xs">
+            <span class="font-display-lg text-display-lg font-extrabold text-secondary">Contact</span>
+            <span class="text-on-surface-variant font-label-md text-label-md">for custom pricing</span>
+          </div>
+          <p class="text-xs text-outline mt-1">Flexible licensing tailored to university size.</p>
+        </div>
+
+        <ul class="space-y-md mb-2xl">
+          <li class="flex items-center gap-md font-body-sm text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+            <span>Unlimited Faculty & students</span>
+          </li>
+          <li class="flex items-center gap-md font-body-sm text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+            <span>Dedicated SMTP gateway configuration</span>
+          </li>
+          <li class="flex items-center gap-md font-body-sm text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+            <span>Custom Neural-X LLM setup</span>
+          </li>
+          <li class="flex items-center gap-md font-body-sm text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+            <span>Automated AI risk alerting webhooks</span>
+          </li>
+          <li class="flex items-center gap-md font-body-sm text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+            <span>24/7 Priority support & SLA</span>
+          </li>
+        </ul>
+      </div>
+
+      <button id="contact-sales-btn" class="w-full py-md bg-zinc-900 text-white font-label-md text-label-md rounded-2xl shadow-lg hover:bg-zinc-800 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2">
+        Contact Business Team
+        <span class="material-symbols-outlined text-[18px]">mail</span>
+      </button>
+    </div>
+
+  </div>
+</main>
+
+<!-- Interactive Checkout Modal for Trial -->
+<div id="trial-modal" class="hidden fixed inset-0 bg-zinc-900/60 backdrop-blur-sm z-[100] items-center justify-center p-md">
+  <div class="w-full max-w-[480px] glass-panel rounded-[28px] p-xl shadow-2xl relative border border-white/20 bg-white">
+    <div class="flex justify-between items-start mb-lg">
+      <div>
+        <h2 class="font-headline-md text-headline-md font-bold text-on-surface">Trial Checkout</h2>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Activate your 2-day trial instantly ($30.00)</p>
+      </div>
+      <button id="close-trial-btn" class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <form id="trial-form" class="space-y-lg">
+      <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant block font-semibold" for="trial-inst-name">Institution Name</label>
+        <input class="w-full px-md py-sm bg-surface-container-low border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-md" id="trial-inst-name" required placeholder="e.g. Stanford University"/>
+      </div>
+
+      <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant block font-semibold" for="trial-email">Billing Email</label>
+        <input type="email" class="w-full px-md py-sm bg-surface-container-low border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-md" id="trial-email" required placeholder="admin@university.edu"/>
+      </div>
+
+      <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant block font-semibold" for="trial-card">Card Information</label>
+        <div class="relative">
+          <input class="w-full pl-xl pr-md py-sm bg-surface-container-low border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-md" id="trial-card" required placeholder="4000 1234 5678 9010" pattern="[0-9 ]{12,19}"/>
+          <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">credit_card</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-md">
+        <div class="space-y-xs">
+          <label class="font-label-sm text-label-sm text-on-surface-variant block font-semibold" for="trial-expiry">Expiry Date</label>
+          <input class="w-full px-md py-sm bg-surface-container-low border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-sm" id="trial-expiry" required placeholder="MM/YY"/>
+        </div>
+        <div class="space-y-xs">
+          <label class="font-label-sm text-label-sm text-on-surface-variant block font-semibold" for="trial-cvv">CVV</label>
+          <input class="w-full px-md py-sm bg-surface-container-low border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-sm" id="trial-cvv" required placeholder="123" pattern="[0-9]{3,4}"/>
+        </div>
+      </div>
+
+      <button type="submit" class="w-full py-md bg-primary text-white font-label-md text-label-md rounded-xl shadow-lg shadow-primary/15 hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+        Pay $30.00 & Activate
+        <span class="material-symbols-outlined text-md">done</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Interactive Business Contact Modal -->
+<div id="enterprise-modal" class="hidden fixed inset-0 bg-zinc-900/60 backdrop-blur-sm z-[100] items-center justify-center p-md">
+  <div class="w-full max-w-[500px] glass-panel rounded-[28px] p-xl shadow-2xl relative border border-white/20 bg-white">
+    <div class="flex justify-between items-start mb-lg">
+      <div>
+        <h2 class="font-headline-md text-headline-md font-bold text-on-surface">Enterprise Inquiry</h2>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Submit details for a custom university-wide deployment.</p>
+      </div>
+      <button id="close-contact-btn" class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <form id="enterprise-form" class="space-y-lg">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface-variant block font-semibold" for="ent-name">Full Name</label>
+          <input class="w-full px-md py-sm bg-surface-container-low border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-md" id="ent-name" required placeholder="Dr. John Smith"/>
+        </div>
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface-variant block font-semibold" for="ent-role">Your Role</label>
+          <input class="w-full px-md py-sm bg-surface-container-low border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-md" id="ent-role" required placeholder="Dean / IT Director"/>
+        </div>
+      </div>
+
+      <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant block font-semibold" for="ent-inst">Institution Name</label>
+        <input class="w-full px-md py-sm bg-surface-container-low border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-md" id="ent-inst" required placeholder="Global Metropolitan University"/>
+      </div>
+
+      <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant block font-semibold" for="ent-email">Official Email</label>
+        <input type="email" class="w-full px-md py-sm bg-surface-container-low border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-md" id="ent-email" required placeholder="j.smith@gmu.edu"/>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface-variant block font-semibold" for="ent-students">Student Count</label>
+          <select class="w-full px-md py-sm bg-white border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-md" id="ent-students">
+            <option>&lt; 1,000 students</option>
+            <option>1,000 - 5,000 students</option>
+            <option>5,000 - 20,000 students</option>
+            <option>20,000+ students</option>
+          </select>
+        </div>
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface-variant block font-semibold" for="ent-timing">Target Timeline</label>
+          <select class="w-full px-md py-sm bg-white border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-md" id="ent-timing">
+            <option>Immediate (1-3 months)</option>
+            <option>Next semester</option>
+            <option>Next academic year</option>
+            <option>Flexible research phase</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant block font-semibold" for="ent-req">Requirements Details</label>
+        <textarea rows="3" class="w-full px-md py-sm bg-surface-container-low border border-outline-variant rounded-xl outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-body-md" id="ent-req" placeholder="Please specify any specific LMS sync or reporting integrations needed..."></textarea>
+      </div>
+
+      <button type="submit" class="w-full py-md bg-zinc-900 text-white font-label-md text-label-md rounded-xl shadow-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+        Submit Inquiry
+        <span class="material-symbols-outlined text-md">send</span>
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniSmart AI - Smarter Attendance Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#191c1e",
+                        "primary-container": "#0ea5e9",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#89ceff",
+                        "outline": "#6e7881",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "tertiary-fixed-dim": "#7bd1fa",
+                        "surface-tint": "#006591",
+                        "on-tertiary-fixed": "#001e2b",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#89ceff",
+                        "on-primary-fixed": "#001e2f",
+                        "on-primary-fixed-variant": "#004c6e",
+                        "tertiary": "#006686",
+                        "primary-fixed": "#c9e6ff",
+                        "on-secondary-container": "#5c647a",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-container": "#4ba5cc",
+                        "on-secondary-fixed": "#131b2e",
+                        "surface": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#dae2fd",
+                        "secondary": "#565e74",
+                        "on-surface-variant": "#3e4850",
+                        "tertiary-fixed": "#c0e8ff",
+                        "on-background": "#191c1e",
+                        "outline-variant": "#bec8d2",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#003751",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "secondary-container": "#dae2fd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#00384b",
+                        "primary": "#006591",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "surface-container-highest": "#e0e3e5",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1440px",
+                        "3xl": "64px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "gutter": "24px",
+                        "2xl": "48px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "base": "8px",
+                        "sm": "8px",
+                        "margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "title-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "title-lg": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+        .mesh-bg {
+            background-color: #f7f9fb;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 101, 145, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 102, 134, 0.05) 0px, transparent 50%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kpi-gradient {
+            background: linear-gradient(135deg, #006591 0%, #006686 100%);
+        }
+        .hero-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center h-16 px-lg sticky top-0 z-40 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-xs">
+<span class="font-headline-md text-headline-md font-bold text-primary">UniSmart AI</span>
+</div>
+<div class="hidden md:flex items-center gap-xl">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#features">Features</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#ai-center">AI Risk Center</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#reports">Reports</a>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="search">search</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden">
+<img alt="Administrator Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnaamb3Ur6wseYwh7vVnSZYt94HLxWg6_AMNOle0_vokk8zmR_sFgk4qDh3vgkM3Ns3LnSDlxFHeTOHGh2WkA7KRHGY5413DHRA6QNLg88unH5H6LgE8Ncwwob1FPoBVqehawIq_x56qxW_PRT_XULHhCAkpsJRVD5-oAjqrNl8HGhtraaXXQMFSdkml8gc_ZDBx1CdgkckuPOKyU3jRoM0iSS25bNylopG1a_OxfH3ObP305QQ1BHx9FD5cc43tl6GHwG_TzmRmnt"/>
+</div>
+</div>
+</nav>
+<main class="mesh-bg">
+<!-- Hero Section -->
+<section class="relative pt-3xl pb-2xl px-lg max-w-container-max mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-2xl items-center">
+<div class="z-10">
+<span class="inline-block px-md py-1 rounded-full bg-primary/10 text-primary font-label-md text-label-md mb-lg">REVOLUTIONIZING ACADEMIA</span>
+<h1 class="font-display text-display text-on-surface mb-md leading-tight">
+                Smarter Attendance Management <span class="text-primary">Powered by AI</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-xl">
+                Predict absenteeism, automate reporting, and empower faculty with intelligent academic insights. UniSmart brings enterprise-grade analytics to the classroom.
+            </p>
+<div class="flex flex-wrap gap-md">
+<button class="px-xl py-md bg-primary text-on-primary rounded-xl font-label-md text-label-md font-bold hover:opacity-90 transition-all scale-100 active:scale-[0.98]">
+                    Get Started
+                </button>
+<button class="px-xl py-md bg-white border border-outline-variant text-on-surface rounded-xl font-label-md text-label-md font-bold hover:bg-surface-container-low transition-all">
+                    Faculty Login
+                </button>
+</div>
+<div class="mt-2xl flex items-center gap-xl grayscale opacity-50">
+<span class="font-label-md text-label-md">TRUSTED BY LEADING INSTITUTIONS</span>
+<div class="flex gap-lg">
+<span class="font-bold">EduCorp</span>
+<span class="font-bold">Global Uni</span>
+<span class="font-bold">TechInst</span>
+</div>
+</div>
+</div>
+<div class="relative flex justify-center hero-float">
+<div class="absolute -top-20 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-20 -left-20 w-80 h-80 bg-tertiary/10 rounded-full blur-3xl"></div>
+<img alt="3D Dashboard Mockup" class="w-full h-auto max-w-2xl drop-shadow-2xl z-10 rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoL7iyHRBWYC2fekRdIcrG9oNha8hgOvlUsAlpkBQ-iu16U9D0Sx4_iTemjDb6dl65H91Y3WDzCpmb9RI2uTgAO10WS93LD3fIixuTGY0qLdA5GzcyhTGxWFI5Btrl_VChFECxDpV75m1oHc6GFVX1tuFFbut1_2uSbUFtAVXPwGShZlNAhdtCymv7ytfWkI4Xwk4PbklKT_ayZpHVsf654DuqN2hDLRXAq02hWisz88ubFtHy6kvu-9V5ZgFgI2seHSYnlzr3cSr5"/>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-3xl px-lg max-w-container-max mx-auto" id="features">
+<div class="text-center mb-3xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Comprehensive Ecosystem</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Modern tools designed specifically for the high-density requirements of modern educational enterprises.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Feature 1 -->
+<div class="bg-white p-xl rounded-2xl border border-outline-variant hover:border-primary/30 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center mb-lg text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-xs">OTP Secure Authentication</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Multi-factor security ensuring that student data and faculty records remain protected at all times.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-white p-xl rounded-2xl border border-outline-variant hover:border-primary/30 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center mb-lg text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-xs">Faculty Management</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Centralized dashboard for deans and administrators to manage teaching staff, schedules, and permissions.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-white p-xl rounded-2xl border border-outline-variant hover:border-primary/30 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center mb-lg text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="upload_file">upload_file</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-xs">Bulk Student Upload</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Seamlessly import thousands of student records via Excel or CSV with intelligent data mapping technology.</p>
+</div>
+<!-- Feature 4 -->
+<div class="bg-white p-xl rounded-2xl border border-outline-variant hover:border-primary/30 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center mb-lg text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-xs">Smart Attendance Tracking</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Automated daily logs with geo-fencing capabilities to prevent fraudulent check-ins and improve accuracy.</p>
+</div>
+<!-- Feature 5 -->
+<div class="bg-white p-xl rounded-2xl border border-outline-variant hover:border-primary/30 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center mb-lg text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-xs">Excel Report Generation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Generate comprehensive department-wide reports in seconds with customizable fields and formatting.</p>
+</div>
+<!-- Feature 6 -->
+<div class="bg-white p-xl rounded-2xl border border-outline-variant hover:border-primary/30 transition-all group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center mb-lg text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-xs">AI Attendance Prediction</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Leverage machine learning to identify patterns and predict future absenteeism risks before they happen.</p>
+</div>
+</div>
+</section>
+<!-- AI Risk Section (Bento Grid Style) -->
+<section class="py-3xl px-lg max-w-container-max mx-auto relative" id="ai-center">
+<div class="mb-2xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-sm">AI Risk Center</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Proactive intervention through predictive analytics.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg h-auto lg:h-[600px]">
+<!-- Main Risk Panel -->
+<div class="lg:col-span-8 glass-panel p-xl rounded-3xl flex flex-col justify-between border-primary/20 bg-white/40">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-md text-label-md text-primary font-bold">LIVE FORECAST</span>
+<h4 class="font-headline-md text-headline-md mt-base">Intervention Suggestions</h4>
+</div>
+<div class="flex gap-xs">
+<span class="px-md py-1 bg-error-container text-on-error-container rounded-full text-label-md font-bold">High Alert</span>
+</div>
+</div>
+<div class="mt-xl space-y-md">
+<div class="flex items-center gap-md p-md bg-white/60 rounded-xl border border-outline-variant">
+<div class="w-10 h-10 rounded-full bg-error/10 text-error flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-bold">Critical: Section B Attendance Drop</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Predicted 15% decline in attendance for next week based on historical exam patterns.</p>
+</div>
+<button class="text-primary font-label-md font-bold">Resolve</button>
+</div>
+<div class="flex items-center gap-md p-md bg-white/60 rounded-xl border border-outline-variant">
+<div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-bold">Suggested: Automated Warning Emails</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Enable automated notification for 42 students reaching the 75% threshold.</p>
+</div>
+<button class="text-primary font-label-md font-bold">Enable</button>
+</div>
+</div>
+<div class="mt-2xl flex items-end justify-between">
+<div class="flex-1 max-w-lg h-40 flex items-end gap-1">
+<!-- Simple SVG Bar Chart Placeholder -->
+<div class="flex-1 bg-primary/20 rounded-t-sm h-[40%]"></div>
+<div class="flex-1 bg-primary/30 rounded-t-sm h-[60%]"></div>
+<div class="flex-1 bg-primary/40 rounded-t-sm h-[55%]"></div>
+<div class="flex-1 bg-primary/50 rounded-t-sm h-[80%]"></div>
+<div class="flex-1 bg-primary/60 rounded-t-sm h-[70%]"></div>
+<div class="flex-1 bg-primary/80 rounded-t-sm h-[90%]"></div>
+<div class="flex-1 bg-primary rounded-t-sm h-[95%]"></div>
+</div>
+<div class="text-right ml-xl">
+<p class="font-display text-display text-primary">82%</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Average Engagement Score</p>
+</div>
+</div>
+</div>
+<!-- Stats Stack -->
+<div class="lg:col-span-4 flex flex-col gap-lg">
+<div class="flex-1 glass-panel p-xl rounded-3xl border-primary/10 bg-white/50">
+<span class="font-label-md text-label-md text-white bg-primary p-1 px-3 rounded-full mb-md inline-block">RISK SCORE</span>
+<h4 class="font-display text-display mt-sm">74.2</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Aggregate risk index across all active semester modules.</p>
+<div class="mt-lg w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary w-3/4 h-full"></div>
+</div>
+</div>
+<div class="flex-1 kpi-gradient p-xl rounded-3xl text-on-primary shadow-xl">
+<div class="flex items-center justify-between mb-xl">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-label-md font-bold">+12% vs LY</span>
+</div>
+<h4 class="font-headline-md text-headline-md">Predicted Retention</h4>
+<p class="font-display text-display font-bold">96.4%</p>
+<p class="font-label-md text-label-md opacity-80 mt-sm">Projected end-of-year retention rate based on current trends.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-3xl px-lg">
+<div class="max-w-4xl mx-auto glass-panel p-2xl rounded-[40px] text-center border-primary/20 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent blur-3xl"></div>
+</div>
+<h2 class="font-display text-display text-on-surface mb-md relative z-10">Ready to Modernize Your Campus?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl relative z-10">Join 50+ universities that are already saving hundreds of hours per semester.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-md relative z-10">
+<button class="px-3xl py-lg bg-primary text-on-primary rounded-2xl font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/25">Get a Demo</button>
+<button class="px-3xl py-lg bg-white border border-outline text-on-surface rounded-2xl font-bold hover:bg-surface-container-low transition-colors">Pricing Plans</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background border-t border-outline-variant py-xl">
+<div class="flex flex-col md:flex-row justify-between items-center px-lg max-w-container-max mx-auto gap-lg">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<span class="font-label-md text-label-md font-bold text-on-surface">UniSmart AI</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 UniSmart AI. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-xl">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+</div>
+<div class="flex gap-md">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</div>
+</footer>
+<script>
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100', 'translate-y-0');
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section > div').forEach(el => {
+        el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+        observer.observe(el);
+    });
+</script>
+</body></html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniSmart AI - Admin Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#c3c0ff",
+                    "background": "#f8f9fa",
+                    "primary-container": "#4f46e5",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1d",
+                    "on-primary-fixed": "#0f0069",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#dad7ff",
+                    "surface-dim": "#d9dadb",
+                    "on-secondary-fixed": "#23005c",
+                    "on-tertiary-fixed": "#001a42",
+                    "primary-fixed": "#e2dfff",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#005cc6",
+                    "tertiary-fixed-dim": "#adc6ff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "secondary-container": "#8455ef",
+                    "on-surface-variant": "#464555",
+                    "surface-tint": "#4d44e3",
+                    "on-tertiary-container": "#cedbff",
+                    "surface-container-highest": "#e1e3e4",
+                    "primary": "#3525cd",
+                    "secondary-fixed": "#e9ddff",
+                    "on-background": "#191c1d",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f3f4f5",
+                    "surface": "#f8f9fa",
+                    "surface-container-high": "#e7e8e9",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "tertiary-fixed": "#d8e2ff",
+                    "tertiary": "#004598",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-error": "#ffffff",
+                    "secondary": "#6b38d4",
+                    "on-secondary-container": "#fffbff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#004395",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c7c4d8",
+                    "surface-bright": "#f8f9fa",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container": "#edeeef",
+                    "outline": "#777587"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "sm": "12px",
+                    "sidebar-width": "280px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "2xl": "48px",
+                    "lg": "24px",
+                    "xs": "8px",
+                    "3xl": "64px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Geist"],
+                    "label-sm": ["Geist"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .animated-gradient {
+            background: linear-gradient(-45deg, #4f46e5, #3525cd, #6b38d4, #8455ef);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Blurred Gradient Background Layer -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-primary/10 blur-[120px]"></div>
+<div class="absolute -bottom-[10%] -right-[5%] w-[50%] h-[50%] rounded-full bg-secondary/10 blur-[120px]"></div>
+
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 flex min-h-screen items-center justify-center p-lg">
+<!-- Login Container -->
+<div class="w-full max-w-[440px] flex flex-col items-center">
+<!-- Brand Logo Anchor -->
+<div class="mb-xl flex flex-col items-center gap-xs">
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white text-[28px]" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">UniSmart AI</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Enterprise LMS Portal</p>
+</div>
+<!-- Login Card -->
+<div class="w-full glass-panel rounded-[24px] p-xl shadow-xl shadow-primary/5">
+<div class="mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface">Admin Login</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Enter your credentials to manage the academic ecosystem.</p>
+</div>
+<form class="space-y-lg" onsubmit="event.preventDefault();">
+<!-- Email Field -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block" for="email">University Email</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full pl-xl pr-md py-sm bg-surface-container-low border border-outline-variant rounded-xl focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all outline-none font-body-md" id="email" name="email" placeholder="admin@university.edu" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant" for="password">Password</label>
+<a class="font-label-sm text-label-sm text-primary hover:text-primary-container transition-colors" href="#">Forgot Password?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-xl pr-xl py-sm bg-surface-container-low border border-outline-variant rounded-xl focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all outline-none font-body-md" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined" id="toggleIcon">visibility</span>
+</button>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="w-full py-md bg-primary text-white font-label-md text-label-md rounded-xl shadow-lg shadow-primary/20 hover:bg-primary-container hover:scale-[1.01] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2" type="submit">
+                        Login as Admin
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+<!-- SSO Section -->
+<div class="mt-xl pt-xl border-t border-outline-variant">
+<p class="font-label-sm text-label-sm text-center text-outline uppercase tracking-widest mb-md">Or continue with</p>
+<div class="grid grid-cols-2 gap-md">
+<button class="flex items-center justify-center gap-2 py-sm px-md border border-outline-variant rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">
+<img alt="Google" class="w-4 h-4 grayscale opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX6AtgAwlSJgC8iMEKJQ2k09I6uj6TL_nd_KyBWmnEfk4iKAepFG7BK_IiVipJ4V5HA5KNcnDnVTTX-nAAMMecgWCUlIMY5tozlB_f4o6o_coIn6pX5-sOIDR8SsOEJS1Lnl2kLxtTqTapq_y1EOsjyxDgR3KiTWJFXC-A9hNGNCN9uKUo2yUWmYymOTrLsoHX3dffMR1CSKfoWqK1k1_Aaf2-H_4qHsxKuqmxkMYK8HnkZtWyRKJytmgyh8-j8EY0cvveNCwIFTAh"/>
+                            Google SSO
+                        </button>
+<button class="flex items-center justify-center gap-2 py-sm px-md border border-outline-variant rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-outline text-[18px]">key</span>
+                            SAML 2.0
+                        </button>
+</div>
+</div>
+</div>
+<!-- Footer Text -->
+<footer class="mt-xl text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Security Policy: Unauthorized access attempts are logged and reported.
+                    <br/>
+<span class="opacity-60">© 2024 UniSmart AI. All rights reserved.</span>
+</p>
+</footer>
+</div>
+</main>
+<!-- Side Decoration (Ambient Visual) -->
+<div class="fixed top-1/2 left-xl -translate-y-1/2 hidden xl:block w-72 h-72">
+<div class="relative w-full h-full opacity-20">
+<div class="absolute inset-0 border border-primary/20 rounded-full animate-[spin_20s_linear_infinite]"></div>
+<div class="absolute inset-8 border border-secondary/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+<div class="absolute inset-16 border border-primary/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
+</div>
+</div>
+<script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.innerText = 'visibility_off';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.innerText = 'visibility';
+            }
+        }
+
+        // Micro-interaction: Subtle mouse parallax on the main card
+        document.addEventListener('mousemove', (e) => {
+            const card = document.querySelector('.glass-panel');
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            const card = document.querySelector('.glass-panel');
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            card.style.transition = 'all 0.5s ease';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            const card = document.querySelector('.glass-panel');
+            card.style.transition = 'none';
+        });
+    </script>
+</body></html>

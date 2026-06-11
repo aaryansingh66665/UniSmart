@@ -1,0 +1,91 @@
+<!-- Blurred Gradient Background Layer -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+  <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-primary/10 blur-[120px]"></div>
+  <div class="absolute -bottom-[10%] -right-[5%] w-[50%] h-[50%] rounded-full bg-secondary/10 blur-[120px]"></div>
+</div>
+
+<!-- Main Content Canvas -->
+<main class="relative z-10 flex min-h-screen items-center justify-center p-lg">
+  <div class="w-full max-w-[440px] flex flex-col items-center">
+    <!-- Brand Logo Anchor -->
+    <a href="#/" class="mb-xl flex flex-col items-center gap-xs group">
+      <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined text-white text-[28px]" style="font-variation-settings: 'FILL' 1;">school</span>
+      </div>
+      <h1 class="font-headline-md text-headline-md text-primary tracking-tight font-bold mt-2">UniSmart AI</h1>
+      <p class="font-label-md text-label-md text-on-surface-variant">Enterprise LMS Portal</p>
+    </a>
+    
+    <!-- Login Card -->
+    <div class="w-full glass-panel rounded-[24px] p-xl shadow-xl shadow-primary/5">
+      <div class="mb-lg">
+        <h2 class="font-headline-md text-headline-md text-on-surface font-bold">Admin Login</h2>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Enter your credentials to manage the academic ecosystem.</p>
+      </div>
+      <form class="space-y-lg" onsubmit="event.preventDefault();">
+        <!-- Email Field -->
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface-variant block font-semibold" for="email">University Email</label>
+          <div class="relative group">
+            <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
+            <input class="w-full pl-xl pr-md py-sm bg-surface-container-low border border-outline-variant rounded-xl focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all outline-none font-body-md" id="email" name="email" placeholder="admin@university.edu" required="" type="email"/>
+          </div>
+        </div>
+        <!-- Password Field -->
+        <div class="space-y-xs">
+          <div class="flex justify-between items-center">
+            <label class="font-label-md text-label-md text-on-surface-variant font-semibold" for="password">Password</label>
+            <a class="font-label-sm text-label-sm text-primary hover:text-primary-container transition-colors" href="#">Forgot Password?</a>
+          </div>
+          <div class="relative group">
+            <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+            <input class="w-full pl-xl pr-xl py-sm bg-surface-container-low border border-outline-variant rounded-xl focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all outline-none font-body-md" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+          </div>
+        </div>
+
+        <!-- Simulated OTP Verification Section (Revealed via JS) -->
+        <div id="otp-section" class="space-y-xs hidden opacity-0 transition-opacity duration-300">
+          <label class="font-label-md text-label-md text-on-surface-variant block font-semibold">Verification Code (OTP)</label>
+          <div class="flex gap-2 justify-between">
+            <input class="w-12 h-12 text-center bg-surface-container-low border border-outline-variant rounded-xl font-headline-md text-headline-md focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none" maxlength="1" type="text" pattern="[0-9]"/>
+            <input class="w-12 h-12 text-center bg-surface-container-low border border-outline-variant rounded-xl font-headline-md text-headline-md focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none" maxlength="1" type="text" pattern="[0-9]"/>
+            <input class="w-12 h-12 text-center bg-surface-container-low border border-outline-variant rounded-xl font-headline-md text-headline-md focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none" maxlength="1" type="text" pattern="[0-9]"/>
+            <input class="w-12 h-12 text-center bg-surface-container-low border border-outline-variant rounded-xl font-headline-md text-headline-md focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none" maxlength="1" type="text" pattern="[0-9]"/>
+            <input class="w-12 h-12 text-center bg-surface-container-low border border-outline-variant rounded-xl font-headline-md text-headline-md focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none" maxlength="1" type="text" pattern="[0-9]"/>
+            <input class="w-12 h-12 text-center bg-surface-container-low border border-outline-variant rounded-xl font-headline-md text-headline-md focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none" maxlength="1" type="text" pattern="[0-9]"/>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-1">Simulated 2FA active. Check console or enter any code.</p>
+        </div>
+
+        <!-- CTA Button -->
+        <button class="w-full py-md bg-primary text-white font-label-md text-label-md rounded-xl shadow-lg shadow-primary/20 hover:bg-primary-container hover:scale-[1.01] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2" type="submit">
+          Send Verification Code
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </button>
+      </form>
+
+      <!-- SSO Section -->
+      <div class="mt-xl pt-xl border-t border-outline-variant">
+        <p class="font-label-sm text-label-sm text-center text-outline uppercase tracking-widest mb-md font-semibold">Or continue with</p>
+        <div class="grid grid-cols-2 gap-md">
+          <button class="flex items-center justify-center gap-2 py-sm px-md border border-outline-variant rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">
+            <img alt="Google" class="w-4 h-4 grayscale opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX6AtgAwlSJgC8iMEKJQ2k09I6uj6TL_nd_KyBWmnEfk4iKAepFG7BK_IiVipJ4V5HA5KNcnDnVTTX-nAAMMecgWCUlIMY5tozlB_f4o6o_coIn6pX5-sOIDR8SsOEJS1Lnl2kLxtTqTapq_y1EOsjyxDgR3KiTWJFXC-A9hNGNCN9uKUo2yUWmYymOTrLsoHX3dffMR1CSKfoWqK1k1_Aaf2-H_4qHsxKuqmxkMYK8HnkZtWyRKJytmgyh8-j8EY0cvveNCwIFTAh"/>
+            Google SSO
+          </button>
+          <button class="flex items-center justify-center gap-2 py-sm px-md border border-outline-variant rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">
+            <span class="material-symbols-outlined text-outline text-[18px]">key</span>
+            SAML 2.0
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Text -->
+    <footer class="mt-xl text-center">
+      <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        Security Policy: Unauthorized access attempts are logged and reported.
+        <br/>
+        <span class="opacity-60">© 2024 UniSmart AI. All rights reserved.</span>
+      </p>
+    </footer>
+  </div>
+</main>

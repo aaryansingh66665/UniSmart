@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Upload Module | UniSmart AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .drop-zone-animate {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%233525cd' stroke-width='2' stroke-dasharray='8%2c 12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+        }
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -20;
+            }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e1e3e4;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #c7c4d8;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#c3c0ff",
+                        "background": "#f8f9fa",
+                        "primary-container": "#4f46e5",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed": "#0f0069",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#dad7ff",
+                        "surface-dim": "#d9dadb",
+                        "on-secondary-fixed": "#23005c",
+                        "on-tertiary-fixed": "#001a42",
+                        "primary-fixed": "#e2dfff",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#005cc6",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "secondary-container": "#8455ef",
+                        "on-surface-variant": "#464555",
+                        "surface-tint": "#4d44e3",
+                        "on-tertiary-container": "#cedbff",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary": "#3525cd",
+                        "secondary-fixed": "#e9ddff",
+                        "on-background": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "surface": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "tertiary-fixed": "#d8e2ff",
+                        "tertiary": "#004598",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-error": "#ffffff",
+                        "secondary": "#6b38d4",
+                        "on-secondary-container": "#fffbff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c7c4d8",
+                        "surface-bright": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container": "#edeeef",
+                        "outline": "#777587"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1440px",
+                        "sm": "12px",
+                        "sidebar-width": "280px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "2xl": "48px",
+                        "lg": "24px",
+                        "xs": "8px",
+                        "3xl": "64px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Geist"],
+                        "label-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md overflow-x-hidden">
+<!-- Side Navigation -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-xl border-r border-outline-variant dark:border-outline shadow-sm dark:shadow-none z-50 flex flex-col py-lg">
+<div class="px-lg mb-3xl">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed">UniSmart AI</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Enterprise LMS</p>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto px-md custom-scrollbar">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Faculty</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary/10 dark:bg-primary-container/20 text-primary dark:text-primary-fixed border-l-2 border-primary rounded-r-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Attendance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-md text-label-md">AI Risk Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-lg border-t border-outline-variant">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[280px] min-h-screen">
+<!-- Top Navigation -->
+<header class="h-16 px-lg sticky top-0 z-40 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant dark:border-outline flex justify-between items-center">
+<div class="flex items-center gap-xl flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 focus:ring-2 focus:ring-primary/10 focus:border-primary outline-none transition-all" placeholder="Search student records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="relative p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Administrator Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPZaabzxwf0CRugheBAyhuAsPan1bmqhuKIDFELX5u5tzyTfP8BBITaBB5G50XASj_1HdRjPDRnT0yf0h6m--rq13R-hdy6QIJ2k_suixOrkbAS5edWSTVlgyMm5jwMkNCvZce-Z2s0E9Df6L3rFXeZFi5T5tPKxg9MsDHsIejl2jLIPZ7chQZexHxFyb7Y0T8bZhHW948S3qKR9Bh4n6JeHiaOQpWYK2IHEUbmG4Q4sxeZQP6eu7OPNvbbL19jpZCiuGSX0iCGDsl"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="max-w-container-max mx-auto p-xl">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-lg mb-xl">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-xs">Student Upload Module</h2>
+<p class="text-on-surface-variant font-body-md">Batch import new student enrollment data using Excel or CSV templates.</p>
+</div>
+<div class="flex gap-md">
+<button class="px-lg py-sm font-label-md text-label-md flex items-center gap-2 bg-white border border-outline-variant text-on-surface hover:bg-surface-container transition-colors rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Download Template
+                    </button>
+<button class="px-lg py-sm font-label-md text-label-md flex items-center gap-2 bg-primary text-on-primary hover:opacity-90 transition-opacity rounded-xl shadow-lg">
+<span class="material-symbols-outlined text-[18px]">upload</span>
+                        Upload Excel
+                    </button>
+</div>
+</div>
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-12 gap-lg">
+<!-- Upload Zone -->
+<div class="col-span-12 lg:col-span-8 space-y-lg">
+<div class="bg-white rounded-2xl p-xl border border-outline-variant drop-zone-animate group transition-all duration-300 hover:border-primary/50 relative overflow-hidden h-[400px] flex flex-col items-center justify-center cursor-pointer">
+<div class="text-center z-10">
+<div class="w-20 h-20 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-lg group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-[40px]">cloud_upload</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Drag and drop your file here</h3>
+<p class="text-on-surface-variant font-body-md max-w-sm mx-auto mb-xl">Supports .xlsx, .xls and .csv files up to 25MB. Ensure your data matches the system template structure.</p>
+<input class="hidden" id="file-upload" type="file"/>
+<label class="px-xl py-sm bg-primary text-on-primary rounded-xl font-label-md cursor-pointer hover:bg-primary/90 transition-all inline-block" for="file-upload">
+                                Browse Files
+                            </label>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-16 -right-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+</div>
+<!-- Progress/Status Tracker -->
+<div class="bg-white rounded-2xl border border-outline-variant p-lg shadow-sm">
+<h4 class="font-label-md text-label-md text-on-surface mb-lg uppercase tracking-wider">Processing Status</h4>
+<div class="flex flex-col md:flex-row items-start md:items-center gap-xl">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div>
+<p class="font-label-md text-label-md">File validated</p>
+<p class="text-xs text-on-surface-variant">Schema and integrity check passed</p>
+</div>
+</div>
+<div class="hidden md:block w-12 h-px bg-outline-variant"></div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div>
+<p class="font-label-md text-label-md">Records imported</p>
+<p class="text-xs text-on-surface-variant">128 new student nodes created</p>
+</div>
+</div>
+<div class="hidden md:block w-12 h-px bg-outline-variant"></div>
+<div class="flex items-center gap-3 opacity-50">
+<div class="w-8 h-8 rounded-full border-2 border-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</div>
+<div>
+<p class="font-label-md text-label-md">Notifying Students</p>
+<p class="text-xs text-on-surface-variant">Pending background job</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Info Sidebar -->
+<div class="col-span-12 lg:col-span-4 space-y-lg">
+<div class="bg-secondary/5 rounded-2xl p-lg border border-secondary/10 relative overflow-hidden group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-secondary mb-md">auto_awesome</span>
+<h4 class="font-headline-md text-headline-md text-secondary mb-xs">AI Smart Match</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">Our AI automatically mapped 85% of your columns. Please review the unmapped fields in the preview table.</p>
+<ul class="space-y-sm">
+<li class="flex items-start gap-2 text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px] mt-1">check_circle</span>
+                                    Name → Full Name
+                                </li>
+<li class="flex items-start gap-2 text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px] mt-1">check_circle</span>
+                                    ID → Student Matriculation
+                                </li>
+<li class="flex items-start gap-2 text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-error text-[16px] mt-1">error</span>
+                                    Col 7 → Missing Mapping
+                                </li>
+</ul>
+</div>
+</div>
+<div class="bg-white rounded-2xl p-lg border border-outline-variant shadow-sm">
+<h4 class="font-label-md text-label-md text-on-surface mb-md">Import Guidelines</h4>
+<div class="space-y-md">
+<div class="flex gap-md">
+<span class="w-6 h-6 rounded-lg bg-surface-container flex items-center justify-center font-bold text-xs text-primary">01</span>
+<p class="text-body-sm text-on-surface-variant">Ensure student email addresses are unique across the enterprise.</p>
+</div>
+<div class="flex gap-md">
+<span class="w-6 h-6 rounded-lg bg-surface-container flex items-center justify-center font-bold text-xs text-primary">02</span>
+<p class="text-body-sm text-on-surface-variant">Dates should follow the ISO format (YYYY-MM-DD).</p>
+</div>
+<div class="flex gap-md">
+<span class="w-6 h-6 rounded-lg bg-surface-container flex items-center justify-center font-bold text-xs text-primary">03</span>
+<p class="text-body-sm text-on-surface-variant">Department codes must correspond to existing registrar records.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Preview Table -->
+<div class="col-span-12">
+<div class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm">
+<div class="px-lg py-md border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">visibility</span>
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Student Preview Table</h4>
+</div>
+<div class="flex gap-md">
+<span class="flex items-center gap-1 text-xs text-on-surface-variant bg-white px-3 py-1 rounded-full border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-primary"></span> 128 Total
+                                </span>
+<span class="flex items-center gap-1 text-xs text-error bg-error-container px-3 py-1 rounded-full border border-error/20">
+<span class="w-2 h-2 rounded-full bg-error"></span> 2 Warnings
+                                </span>
+</div>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left">
+<thead class="bg-surface-container-lowest border-b border-outline-variant">
+<tr>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant">NAME</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant">MATRICULATION ID</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant">DEPARTMENT</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant">EMAIL</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant">ENROLLMENT YEAR</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant text-right">STATUS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold text-xs">AS</div>
+<span class="font-label-md">Alex Sterling</span>
+</div>
+</td>
+<td class="px-lg py-md font-label-sm font-mono">STU-2024-001</td>
+<td class="px-lg py-md text-body-sm text-on-surface-variant">Computer Science</td>
+<td class="px-lg py-md text-body-sm text-on-surface-variant">alex.s@unismart.edu</td>
+<td class="px-lg py-md text-body-sm text-on-surface-variant">2024</td>
+<td class="px-lg py-md text-right">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase tracking-tighter">Ready</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold text-xs">MC</div>
+<span class="font-label-md">Mia Chen</span>
+</div>
+</td>
+<td class="px-lg py-md font-label-sm font-mono text-error">INVALID_ID</td>
+<td class="px-lg py-md text-body-sm text-on-surface-variant">Data Architecture</td>
+<td class="px-lg py-md text-body-sm text-on-surface-variant">m.chen@unismart.edu</td>
+<td class="px-lg py-md text-body-sm text-on-surface-variant">2024</td>
+<td class="px-lg py-md text-right">
+<span class="px-3 py-1 bg-error-container text-error text-[10px] font-bold rounded-full uppercase tracking-tighter">Error</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center font-bold text-xs">JB</div>
+<span class="font-label-md">Jordan Banks</span>
+</div>
+</td>
+<td class="px-lg py-md font-label-sm font-mono">STU-2024-042</td>
+<td class="px-lg py-md text-body-sm text-on-surface-variant">Applied AI</td>
+<td class="px-lg py-md text-body-sm text-on-surface-variant">j.banks@unismart.edu</td>
+<td class="px-lg py-md text-body-sm text-on-surface-variant">2024</td>
+<td class="px-lg py-md text-right">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase tracking-tighter">Ready</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-lg bg-surface-container-low/50 border-t border-outline-variant flex justify-between items-center">
+<p class="text-xs text-on-surface-variant">Showing 3 of 128 records</p>
+<div class="flex gap-2">
+<button class="p-1 rounded hover:bg-surface-container transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-2xl py-xl bg-background border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-lg max-w-container-max mx-auto">
+<div class="mb-lg md:mb-0">
+<p class="font-label-md text-label-md font-bold text-on-surface mb-xs">UniSmart AI</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 UniSmart AI. All rights reserved.</p>
+</div>
+<div class="flex gap-xl">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+</div>
+</div>
+</footer>
+</main>
+<script>
+        // Micro-interaction for drop zone
+        const dropZone = document.querySelector('.drop-zone-animate');
+        
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => {
+                dropZone.classList.add('border-primary', 'bg-primary/5');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => {
+                dropZone.classList.remove('border-primary', 'bg-primary/5');
+            }, false);
+        });
+
+        dropZone.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            let dt = e.dataTransfer;
+            let files = dt.files;
+            console.log('Files dropped:', files);
+            alert('File processing simulation started: ' + files[0].name);
+        }
+    </script>
+</body></html>

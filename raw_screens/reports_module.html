@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reports Module - UniSmart AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#c3c0ff",
+                    "background": "#f8f9fa",
+                    "primary-container": "#4f46e5",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1d",
+                    "on-primary-fixed": "#0f0069",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#dad7ff",
+                    "surface-dim": "#d9dadb",
+                    "on-secondary-fixed": "#23005c",
+                    "on-tertiary-fixed": "#001a42",
+                    "primary-fixed": "#e2dfff",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#005cc6",
+                    "tertiary-fixed-dim": "#adc6ff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "secondary-container": "#8455ef",
+                    "on-surface-variant": "#464555",
+                    "surface-tint": "#4d44e3",
+                    "on-tertiary-container": "#cedbff",
+                    "surface-container-highest": "#e1e3e4",
+                    "primary": "#3525cd",
+                    "secondary-fixed": "#e9ddff",
+                    "on-background": "#191c1d",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f3f4f5",
+                    "surface": "#f8f9fa",
+                    "surface-container-high": "#e7e8e9",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "tertiary-fixed": "#d8e2ff",
+                    "tertiary": "#004598",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-error": "#ffffff",
+                    "secondary": "#6b38d4",
+                    "on-secondary-container": "#fffbff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#004395",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c7c4d8",
+                    "surface-bright": "#f8f9fa",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container": "#edeeef",
+                    "outline": "#777587"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "sm": "12px",
+                    "sidebar-width": "280px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "2xl": "48px",
+                    "lg": "24px",
+                    "xs": "8px",
+                    "3xl": "64px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Geist"],
+                    "label-sm": ["Geist"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(79, 70, 229, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+        }
+        .sidebar-active {
+            border-left: 2px solid #3525cd;
+            background: rgba(79, 70, 229, 0.08);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Side Navigation -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-white/80 backdrop-blur-xl border-r border-outline-variant flex flex-col py-lg z-50">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">UniSmart AI</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Enterprise LMS</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Faculty</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">Attendance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-label-md text-label-md">AI Risk Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary border-l-2 border-primary" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-lg pt-xl border-t border-outline-variant">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold">
+                    AD
+                </div>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Administrator</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Profile</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[280px] min-h-screen flex flex-col">
+<!-- Top Nav Bar -->
+<header class="h-16 px-lg sticky top-0 z-40 bg-surface/80 backdrop-blur-md border-b border-outline-variant flex justify-between items-center">
+<div class="flex items-center bg-surface-container px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full" placeholder="Search reports, data, or faculty..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-xl max-w-container-max w-full mx-auto">
+<div class="mb-xl flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Reports Module</h2>
+<p class="font-body-md text-on-surface-variant">Generate, manage, and distribute institutional intelligence reports.</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-2 px-lg py-sm bg-primary text-on-primary rounded-lg font-label-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                        Custom Report
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Reports Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-lg">
+<!-- Attendance Summary -->
+<article class="glass-card rounded-xl p-lg flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined !text-6xl" data-icon="event_available">event_available</span>
+</div>
+<div class="mb-xl">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-md">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Attendance Summary</h3>
+<p class="font-body-sm text-on-surface-variant">Comprehensive breakdown of student and staff presence across all departments for the current term.</p>
+</div>
+<div class="mt-auto space-y-md">
+<div class="flex items-center justify-between text-label-sm text-on-surface-variant">
+<span>Last generated: 2h ago</span>
+<span class="text-primary font-bold">Live Data</span>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<button class="flex items-center justify-center gap-2 w-full py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="table_view">table_view</span>
+                                Export Excel
+                            </button>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-2 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+                                    PDF
+                                </button>
+<button class="flex items-center justify-center gap-2 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="share">share</span>
+                                    Share
+                                </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Monthly Report -->
+<article class="glass-card rounded-xl p-lg flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined !text-6xl" data-icon="calendar_month">calendar_month</span>
+</div>
+<div class="mb-xl">
+<div class="w-12 h-12 bg-secondary-container/10 rounded-lg flex items-center justify-center text-secondary mb-md">
+<span class="material-symbols-outlined" data-icon="summarize">summarize</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Monthly Report</h3>
+<p class="font-body-sm text-on-surface-variant">Operational highlights, financial status, and resource utilization metrics for October 2024.</p>
+</div>
+<div class="mt-auto space-y-md">
+<div class="flex items-center justify-between text-label-sm text-on-surface-variant">
+<span>Last generated: 1d ago</span>
+<span class="text-secondary font-bold">Review Ready</span>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<button class="flex items-center justify-center gap-2 w-full py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="table_view">table_view</span>
+                                Export Excel
+                            </button>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-2 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+                                    PDF
+                                </button>
+<button class="flex items-center justify-center gap-2 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="share">share</span>
+                                    Share
+                                </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Semester Report -->
+<article class="glass-card rounded-xl p-lg flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined !text-6xl" data-icon="history_edu">history_edu</span>
+</div>
+<div class="mb-xl">
+<div class="w-12 h-12 bg-tertiary-container/10 rounded-lg flex items-center justify-center text-tertiary mb-md">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Semester Report</h3>
+<p class="font-body-sm text-on-surface-variant">End-to-end academic performance analysis, GPA distributions, and curriculum completion rates.</p>
+</div>
+<div class="mt-auto space-y-md">
+<div class="flex items-center justify-between text-label-sm text-on-surface-variant">
+<span>Ready to generate</span>
+<span class="text-tertiary font-bold">Draft</span>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<button class="flex items-center justify-center gap-2 w-full py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="table_view">table_view</span>
+                                Export Excel
+                            </button>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-2 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+                                    PDF
+                                </button>
+<button class="flex items-center justify-center gap-2 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="share">share</span>
+                                    Share
+                                </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Faculty Report -->
+<article class="glass-card rounded-xl p-lg flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined !text-6xl" data-icon="badge">badge</span>
+</div>
+<div class="mb-xl">
+<div class="w-12 h-12 bg-error/10 rounded-lg flex items-center justify-center text-error mb-md">
+<span class="material-symbols-outlined" data-icon="supervised_user_circle">supervised_user_circle</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Faculty Report</h3>
+<p class="font-body-sm text-on-surface-variant">Research output tracking, teaching evaluation scores, and tenure-track progress reports.</p>
+</div>
+<div class="mt-auto space-y-md">
+<div class="flex items-center justify-between text-label-sm text-on-surface-variant">
+<span>Last generated: 3d ago</span>
+<span class="text-error font-bold">Requires Sync</span>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<button class="flex items-center justify-center gap-2 w-full py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="table_view">table_view</span>
+                                Export Excel
+                            </button>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-2 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+                                    PDF
+                                </button>
+<button class="flex items-center justify-center gap-2 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md transition-colors">
+<span class="material-symbols-outlined !text-lg" data-icon="share">share</span>
+                                    Share
+                                </button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Detailed Analysis Section -->
+<div class="mt-2xl">
+<div class="flex items-center gap-2 mb-lg">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">AI Suggested Insights</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-2xl">
+<div class="flex items-start justify-between mb-md">
+<span class="px-2 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">Pattern Detected</span>
+<span class="material-symbols-outlined text-outline" data-icon="more_horiz">more_horiz</span>
+</div>
+<p class="text-body-md text-on-surface mb-sm">Attendance in Engineering 101 has dipped by 12% this week compared to the monthly average.</p>
+<a class="text-primary font-label-md hover:underline flex items-center gap-1" href="#">
+                            Generate Deep-Dive
+                            <span class="material-symbols-outlined !text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-2xl">
+<div class="flex items-start justify-between mb-md">
+<span class="px-2 py-1 bg-secondary-container/10 text-secondary text-[10px] font-bold rounded uppercase">Milestone Reached</span>
+<span class="material-symbols-outlined text-outline" data-icon="more_horiz">more_horiz</span>
+</div>
+<p class="text-body-md text-on-surface mb-sm">Faculty research publication goals for Q3 have been exceeded by 5%. Semester Report is ready for finalization.</p>
+<a class="text-primary font-label-md hover:underline flex items-center gap-1" href="#">
+                            Review Analytics
+                            <span class="material-symbols-outlined !text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-2xl">
+<div class="flex items-start justify-between mb-md">
+<span class="px-2 py-1 bg-tertiary-container/10 text-tertiary text-[10px] font-bold rounded uppercase">Security Alert</span>
+<span class="material-symbols-outlined text-outline" data-icon="more_horiz">more_horiz</span>
+</div>
+<p class="text-body-md text-on-surface mb-sm">Unusual login patterns detected during final exam report generation. Multi-factor verification required.</p>
+<a class="text-primary font-label-md hover:underline flex items-center gap-1" href="#">
+                            Check Risk Center
+                            <span class="material-symbols-outlined !text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Visualization / Graphic Area -->
+<div class="mt-2xl relative h-80 rounded-3xl overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover grayscale opacity-30" data-alt="A futuristic and professional data visualization dashboard background with semi-transparent chart layers, abstract digital nodes, and elegant glowing lines. The style is minimalist and high-tech, using a corporate color palette of deep navy, indigo, and soft whites. The lighting is crisp and modern, reflecting a premium enterprise SaaS aesthetic for a university management system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-rjOoqCd6OeRkD4eE9ibTooABgPubFN_26HFsNkcV8i9OwPf23Z95H8Gihz9WnG6hcI3_fmJavUcGwJog-csF2jDypggO74noCXRREkMQu_6S9C5EViyV76DXGYM6A1A8e51WxDYicwEEr04oeTpt7xV--wDRLTDwTYGHoUfrtwzXq2SkaCmduLEIeHndnQw_F3lbUfMr7swVCZ4APH9_yHwNT9erOGwAnV_CvmWNSviceAMdTJf9sOKW7rtsmoZNr8NZdteHZU1e"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-xl">
+<h4 class="font-headline-md text-headline-md text-on-surface">Live Network Health</h4>
+<p class="font-body-sm text-on-surface-variant max-w-md">Institutional data streams are currently synchronized. Real-time report generation is optimized for 2,400 concurrent administrative users.</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-auto border-t border-outline-variant bg-background py-xl">
+<div class="max-w-container-max mx-auto px-lg flex flex-col md:flex-row justify-between items-center gap-lg">
+<div class="flex items-center gap-lg">
+<p class="font-label-md text-label-md font-bold text-on-surface">UniSmart AI</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 UniSmart AI. All rights reserved.</p>
+</div>
+<div class="flex gap-xl">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+</div>
+</div>
+</footer>
+</main>
+<script>
+        // Micro-interaction for export buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.98)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+
+        // Search bar focus effect
+        const searchBar = document.querySelector('input[type="text"]');
+        searchBar.parentElement.addEventListener('click', () => {
+            searchBar.focus();
+        });
+        searchBar.addEventListener('focus', () => {
+            searchBar.parentElement.classList.add('ring-2', 'ring-primary/20', 'border-primary/40');
+        });
+        searchBar.addEventListener('blur', () => {
+            searchBar.parentElement.classList.remove('ring-2', 'ring-primary/20', 'border-primary/40');
+        });
+    </script>
+</body></html>

@@ -1,0 +1,192 @@
+<!-- Welcome Header -->
+<section class="mb-xl flex justify-between items-end flex-wrap gap-md">
+  <div>
+    <h3 class="font-headline-lg text-headline-lg mb-xs font-semibold">Good Morning, Professor.</h3>
+    <p class="text-on-surface-variant font-body-md">Here's an overview of your academic day and student performance analytics.</p>
+  </div>
+  <div class="flex gap-sm">
+    <a href="#/faculty/reports" class="px-lg py-sm bg-white border border-outline-variant rounded-xl font-label-md text-label-md hover:border-primary/30 hover:bg-surface-container-low transition-all flex items-center gap-xs shadow-sm">
+      <span class="material-symbols-outlined text-md">download</span> Export Report
+    </a>
+    <a href="#/faculty/attendance" class="px-lg py-sm bg-primary text-white rounded-xl font-label-md text-label-md hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center gap-xs">
+      <span class="material-symbols-outlined text-md">add</span> Mark Attendance
+    </a>
+  </div>
+</section>
+
+<!-- KPI Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg mb-xl">
+  <!-- Assigned Students -->
+  <div class="glass-card p-lg rounded-[20px] transition-transform hover:translate-y-[-2px]">
+    <div class="flex justify-between items-start mb-md">
+      <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined">group</span>
+      </div>
+      <span class="text-on-surface-variant text-[12px] font-bold">+4 from last term</span>
+    </div>
+    <p class="text-on-surface-variant font-label-sm uppercase tracking-widest mb-1">Assigned Students</p>
+    <h4 class="text-[32px] font-bold text-primary">148</h4>
+    <div class="mt-md h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+      <div class="bg-primary h-full w-[85%]"></div>
+    </div>
+  </div>
+  <!-- Today's Attendance -->
+  <div class="glass-card p-lg rounded-[20px] transition-transform hover:translate-y-[-2px]">
+    <div class="flex justify-between items-start mb-md">
+      <div class="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary">
+        <span class="material-symbols-outlined">check_circle</span>
+      </div>
+      <span class="text-on-surface-variant text-[12px] font-bold">Real-time</span>
+    </div>
+    <p class="text-on-surface-variant font-label-sm uppercase tracking-widest mb-1">Today's Attendance</p>
+    <h4 class="text-[32px] font-bold text-secondary">92%</h4>
+    <div class="mt-md h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+      <div class="bg-secondary h-full w-[92%]"></div>
+    </div>
+  </div>
+  <!-- Avg Attendance -->
+  <div class="glass-card p-lg rounded-[20px] transition-transform hover:translate-y-[-2px]">
+    <div class="flex justify-between items-start mb-md">
+      <div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary">
+        <span class="material-symbols-outlined">analytics</span>
+      </div>
+      <span class="text-on-surface-variant text-[12px] font-bold">Target 95%</span>
+    </div>
+    <p class="text-on-surface-variant font-label-sm uppercase tracking-widest mb-1">Average Attendance</p>
+    <h4 class="text-[32px] font-bold text-tertiary-container">88.4%</h4>
+    <div class="mt-md h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+      <div class="bg-primary h-full w-[88.4%]"></div>
+    </div>
+  </div>
+  <!-- At-Risk Students -->
+  <div class="glass-card p-lg rounded-[20px] border-error/20 transition-transform hover:translate-y-[-2px]">
+    <div class="flex justify-between items-start mb-md">
+      <div class="w-12 h-12 rounded-2xl bg-error/10 flex items-center justify-center text-error">
+        <span class="material-symbols-outlined">warning</span>
+      </div>
+      <a href="#/faculty/ai-risk" class="text-error font-label-sm hover:underline">Review AI Flags</a>
+    </div>
+    <p class="text-on-surface-variant font-label-sm uppercase tracking-widest mb-1">At-Risk Students</p>
+    <h4 class="text-[32px] font-bold text-error">12</h4>
+    <div class="mt-md h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+      <div class="bg-error h-full w-[15%]"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+  <!-- Left Column: Today's Schedule -->
+  <div class="lg:col-span-2 flex flex-col gap-lg">
+    <section class="glass-card rounded-[24px] overflow-hidden">
+      <div class="p-lg border-b border-outline-variant flex justify-between items-center">
+        <h5 class="font-headline-md text-headline-md font-semibold">Today's Schedule</h5>
+        <div class="flex gap-xs">
+          <button class="p-2 rounded-lg hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+          <button class="p-2 rounded-lg hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+        </div>
+      </div>
+      <div class="p-lg">
+        <div class="space-y-md">
+          <!-- Class Item -->
+          <div class="group flex items-center gap-lg p-md rounded-2xl hover:bg-primary/5 border border-transparent hover:border-primary/10 transition-all cursor-pointer" onclick="window.location.hash='#/faculty/attendance'">
+            <div class="text-center w-16">
+              <p class="font-label-md text-label-md font-bold">09:00</p>
+              <p class="text-xs text-outline">AM</p>
+            </div>
+            <div class="w-1 h-12 bg-primary rounded-full"></div>
+            <div class="flex-1">
+              <p class="font-label-md text-label-md font-bold group-hover:text-primary transition-colors">Advanced Machine Learning</p>
+              <p class="text-sm text-on-surface-variant">Lecture Hall A • Level 4</p>
+            </div>
+            <div class="flex items-center gap-md">
+              <div class="flex -space-x-2">
+                <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwDkreb-E0ji0qWOHaJAyLJgwsIFybyCygRb8E2WiCq2vKlBwROhsxdJfk7CMXYu61sgrQn8b95EzydaU8Pkw9qJy5C8jTCHVxbLUdnXn7TKCV7FstoHQU42DtGtUNum9S6labOEgHTKNHxCH-r0bnmV9vrKABoTmAFZyaLnHxOi5ORDcp41l3qvi-9QFi0YW1j-k1l6zL8K813rrjCOYwdfeaY9N0jVsrNlbAFUTF_gssSSPgHmDrW0QxHbDge-rzR_eogEs151ue"/>
+                <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCklgZ6lCyMQJJeLUbNC37f7OrptNhzRT2XUMNOIpDufy3cgPh9DPNhbEIkVGK7znT6vRAm8GQ8iRTnfV7vA1GG89eanMMihweG48EOkcBDGAzkFAG0sEjYxa7abP2Ehj5pEt921oG0qvunUn1UfjG6JUVIFo35oafN6y7qW7-R1zrPrM2cUzmI47MDZsNsW84YEq4eu32Sf2dK_Jqa2nhGZpEWkyF4iIhzvLeFHMXffAKx6LIav6OUr807lK-cNZxHjkQ6RMdOt_ei"/>
+                <div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+42</div>
+              </div>
+              <span class="px-md py-xs bg-primary text-white rounded-lg text-xs font-bold transition-all">Mark Roll</span>
+            </div>
+          </div>
+          <!-- Class Item -->
+          <div class="group flex items-center gap-lg p-md rounded-2xl hover:bg-secondary/5 border border-transparent hover:border-secondary/10 transition-all cursor-pointer" onclick="window.location.hash='#/faculty/attendance'">
+            <div class="text-center w-16">
+              <p class="font-label-md text-label-md font-bold">11:30</p>
+              <p class="text-xs text-outline">AM</p>
+            </div>
+            <div class="w-1 h-12 bg-secondary rounded-full"></div>
+            <div class="flex-1">
+              <p class="font-label-md text-label-md font-bold group-hover:text-secondary transition-colors">Neural Networks &amp; Deep Learning</p>
+              <p class="text-sm text-on-surface-variant">Lab Room 302 • Tech Hub</p>
+            </div>
+            <div class="flex items-center gap-md">
+              <div class="flex -space-x-2">
+                <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDozolvDv0iDv8QMbZElm_2o-4EZ0qvwkZrKpw7f2KgCSC9f12hJBDa1VOocXtNxOOMDHGEb4xAQdV3gKfMXXTRv2hSP3-eYUBlHPjqTPkJ4Afbpz1bA0gS6b1jWdY3dI6duGLdXquoSwR46PZjK_5HL_m72ExxvfNKiYkz5kwAQTT5t95NpoWoEHkJFCtKLxcVstljOM3yCQO15N_WeKU1HLT2d95At9g_vacIM3M9ppmszEIAprDTQy5H-OE7IuObTflp9LOwdmIq"/>
+                <div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+18</div>
+              </div>
+              <span class="px-md py-xs bg-secondary text-white rounded-lg text-xs font-bold transition-all">Mark Roll</span>
+            </div>
+          </div>
+          <!-- Class Item -->
+          <div class="group flex items-center gap-lg p-md rounded-2xl bg-surface-container-low/50 border border-outline-variant opacity-60">
+            <div class="text-center w-16">
+              <p class="font-label-md text-label-md font-bold">02:00</p>
+              <p class="text-xs text-outline">PM</p>
+            </div>
+            <div class="w-1 h-12 bg-on-surface-variant/30 rounded-full"></div>
+            <div class="flex-1">
+              <p class="font-label-md text-label-md font-bold">Academic Board Meeting</p>
+              <p class="text-sm text-on-surface-variant">Virtual • Teams Link Attached</p>
+            </div>
+            <div class="flex items-center gap-md">
+              <span class="material-symbols-outlined text-outline">videocam</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Right Column: Quick Action & AI Risk -->
+  <div class="flex flex-col gap-lg">
+    <!-- Quick Action Card: Mark Attendance -->
+    <section class="bg-primary-container p-lg rounded-[24px] text-white relative overflow-hidden group">
+      <div class="relative z-10">
+        <h5 class="font-headline-md text-headline-md mb-xs font-semibold">Mark Attendance</h5>
+        <p class="opacity-80 text-sm mb-xl">Scan QR or mark manually for your current session.</p>
+        <div class="space-y-sm">
+          <a href="#/faculty/attendance" class="w-full py-md bg-white text-primary rounded-xl font-bold flex items-center justify-center gap-md hover:bg-opacity-95 transition-all active:scale-[0.98]">
+            <span class="material-symbols-outlined">qr_code_scanner</span> Open Scanner
+          </a>
+          <a href="#/faculty/attendance" class="w-full py-md bg-white/20 text-white border border-white/30 rounded-xl font-bold flex items-center justify-center gap-md hover:bg-white/30 transition-all active:scale-[0.98]">
+            <span class="material-symbols-outlined">edit_note</span> Manual Input
+          </a>
+        </div>
+      </div>
+      <!-- Abstract Design Element -->
+      <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+      <div class="absolute -left-12 -top-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+    </section>
+
+    <!-- AI Insights Mini-Card -->
+    <section class="glass-card p-lg rounded-[24px]">
+      <div class="flex items-center gap-sm mb-lg">
+        <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+        </div>
+        <h6 class="font-label-md text-label-md font-bold">Smart Insights</h6>
+      </div>
+      <div class="space-y-md">
+        <div class="p-md bg-surface-container-low rounded-xl border-l-4 border-error">
+          <p class="text-[12px] text-error font-bold mb-1">ABSENCE ALERT</p>
+          <p class="text-sm font-medium text-on-surface">3 students from 'Neural Networks' have missed 3 consecutive labs.</p>
+        </div>
+        <div class="p-md bg-surface-container-low rounded-xl border-l-4 border-primary">
+          <p class="text-[12px] text-primary font-bold mb-1">PERFORMANCE BOOST</p>
+          <p class="text-sm font-medium text-on-surface">Average test scores for Section B improved by 14% this week.</p>
+        </div>
+      </div>
+      <a href="#/faculty/ai-risk" class="w-full mt-lg py-sm text-primary font-label-md text-label-md hover:underline block text-center">View AI Risk Dashboard</a>
+    </section>
+  </div>
+</div>

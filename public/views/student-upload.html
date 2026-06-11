@@ -1,0 +1,207 @@
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-lg mb-xl">
+  <div>
+    <h2 class="font-headline-md text-headline-md text-primary mb-xs font-semibold">Student Upload Module</h2>
+    <p class="text-on-surface-variant font-body-md">Batch import new student enrollment data using Excel or CSV templates.</p>
+  </div>
+  <div class="flex gap-md">
+    <button class="px-lg py-sm font-label-md text-label-md flex items-center gap-2 bg-white border border-outline-variant text-on-surface hover:bg-surface-container transition-colors rounded-xl shadow-sm">
+      <span class="material-symbols-outlined text-[18px]">download</span>
+      Download Template
+    </button>
+    <button id="upload-excel-trigger" class="px-lg py-sm font-label-md text-label-md flex items-center gap-2 bg-primary text-on-primary hover:opacity-90 transition-opacity rounded-xl shadow-lg">
+      <span class="material-symbols-outlined text-[18px]">upload</span>
+      Upload Excel
+    </button>
+  </div>
+</div>
+
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-12 gap-lg">
+  <!-- Upload Zone -->
+  <div class="col-span-12 lg:col-span-8 space-y-lg">
+    <div class="bg-white rounded-2xl p-xl border border-outline-variant drop-zone-animate group transition-all duration-300 hover:border-primary/50 relative overflow-hidden h-[400px] flex flex-col items-center justify-center cursor-pointer">
+      <div class="text-center z-10">
+        <div class="w-20 h-20 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-lg group-hover:scale-110 transition-transform duration-300">
+          <span class="material-symbols-outlined text-primary text-[40px]">cloud_upload</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-xs font-bold">Drag and drop your file here</h3>
+        <p class="text-on-surface-variant font-body-md max-w-sm mx-auto mb-xl">Supports .xlsx, .xls and .csv files up to 25MB. Ensure your data matches the system template structure.</p>
+        <span class="px-xl py-sm bg-primary text-white rounded-xl font-label-md hover:bg-opacity-95 transition-all inline-block">
+          Browse Files
+        </span>
+      </div>
+      <!-- Decorative element -->
+      <div class="absolute -bottom-16 -right-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+    </div>
+    <!-- Progress/Status Tracker -->
+    <div class="bg-white rounded-2xl border border-outline-variant p-lg shadow-sm">
+      <h4 class="font-label-md text-label-md text-on-surface mb-lg uppercase tracking-wider font-semibold">Processing Status</h4>
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-xl">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">check</span>
+          </div>
+          <div>
+            <p class="font-label-md text-label-md font-bold">File validated</p>
+            <p class="text-xs text-on-surface-variant">Schema and integrity check passed</p>
+          </div>
+        </div>
+        <div class="hidden md:block w-12 h-px bg-outline-variant"></div>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">check</span>
+          </div>
+          <div>
+            <p class="font-label-md text-label-md font-bold">Records imported</p>
+            <p class="text-xs text-on-surface-variant">128 new student nodes created</p>
+          </div>
+        </div>
+        <div class="hidden md:block w-12 h-px bg-outline-variant"></div>
+        <div class="flex items-center gap-3 opacity-50">
+          <div class="w-8 h-8 rounded-full border-2 border-outline flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">mail</span>
+          </div>
+          <div>
+            <p class="font-label-md text-label-md font-bold">Notifying Students</p>
+            <p class="text-xs text-on-surface-variant">Pending background job</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Info Sidebar -->
+  <div class="col-span-12 lg:col-span-4 space-y-lg">
+    <div class="bg-secondary/5 rounded-2xl p-lg border border-secondary/10 relative overflow-hidden group">
+      <div class="relative z-10">
+        <span class="material-symbols-outlined text-secondary mb-md">auto_awesome</span>
+        <h4 class="font-headline-md text-headline-md text-secondary mb-xs font-semibold">AI Smart Match</h4>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mb-lg leading-relaxed">Our AI automatically mapped 85% of your columns. Please review the unmapped fields in the preview table.</p>
+        <ul class="space-y-sm font-semibold">
+          <li class="flex items-start gap-2 text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary text-[16px] mt-1">check_circle</span>
+            Name → Full Name
+          </li>
+          <li class="flex items-start gap-2 text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary text-[16px] mt-1">check_circle</span>
+            ID → Student Matriculation
+          </li>
+          <li class="flex items-start gap-2 text-body-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-error text-[16px] mt-1">error</span>
+            Col 7 → Missing Mapping
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl p-lg border border-outline-variant shadow-sm">
+      <h4 class="font-label-md text-label-md text-on-surface mb-md font-semibold">Import Guidelines</h4>
+      <div class="space-y-md">
+        <div class="flex gap-md">
+          <span class="w-6 h-6 rounded-lg bg-surface-container flex items-center justify-center font-bold text-xs text-primary">01</span>
+          <p class="text-body-sm text-on-surface-variant">Ensure student email addresses are unique across the enterprise.</p>
+        </div>
+        <div class="flex gap-md">
+          <span class="w-6 h-6 rounded-lg bg-surface-container flex items-center justify-center font-bold text-xs text-primary">02</span>
+          <p class="text-body-sm text-on-surface-variant">Dates should follow the ISO format (YYYY-MM-DD).</p>
+        </div>
+        <div class="flex gap-md">
+          <span class="w-6 h-6 rounded-lg bg-surface-container flex items-center justify-center font-bold text-xs text-primary">03</span>
+          <p class="text-body-sm text-on-surface-variant">Department codes must correspond to existing registrar records.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Preview Table -->
+  <div class="col-span-12">
+    <div class="bg-white rounded-2xl border border-outline-variant overflow-hidden shadow-sm">
+      <div class="px-lg py-md border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-on-surface-variant">visibility</span>
+          <h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-semibold">Student Preview Table</h4>
+        </div>
+        <div class="flex gap-md">
+          <span class="flex items-center gap-1 text-xs text-on-surface-variant bg-white px-3 py-1 rounded-full border border-outline-variant">
+            <span class="w-2 h-2 rounded-full bg-primary"></span> 128 Total
+          </span>
+          <span class="flex items-center gap-1 text-xs text-error bg-error-container px-3 py-1 rounded-full border border-error/20 font-bold">
+            <span class="w-2 h-2 rounded-full bg-error"></span> 2 Warnings
+          </span>
+        </div>
+      </div>
+      <div class="overflow-x-auto custom-scrollbar">
+        <table class="w-full text-left">
+          <thead class="bg-surface-container-lowest border-b border-outline-variant">
+            <tr>
+              <th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant font-bold">NAME</th>
+              <th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant font-bold">MATRICULATION ID</th>
+              <th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant font-bold">DEPARTMENT</th>
+              <th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant font-bold">EMAIL</th>
+              <th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant font-bold">ENROLLMENT YEAR</th>
+              <th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant text-right font-bold">STATUS</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-outline-variant/30">
+            <tr class="hover:bg-surface-container-lowest transition-colors group">
+              <td class="px-lg py-md">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold text-xs">AS</div>
+                  <span class="font-label-md font-semibold">Alex Sterling</span>
+                </div>
+              </td>
+              <td class="px-lg py-md font-label-sm font-mono text-xs">STU-2024-001</td>
+              <td class="px-lg py-md text-body-sm text-on-surface-variant">Computer Science</td>
+              <td class="px-lg py-md text-body-sm text-on-surface-variant">alex.s@unismart.edu</td>
+              <td class="px-lg py-md text-body-sm text-on-surface-variant">2024</td>
+              <td class="px-lg py-md text-right">
+                <span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase tracking-tighter">Ready</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-surface-container-lowest transition-colors group">
+              <td class="px-lg py-md">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold text-xs">MC</div>
+                  <span class="font-label-md font-semibold">Mia Chen</span>
+                </div>
+              </td>
+              <td class="px-lg py-md font-label-sm font-mono text-error text-xs">INVALID_ID</td>
+              <td class="px-lg py-md text-body-sm text-on-surface-variant">Data Architecture</td>
+              <td class="px-lg py-md text-body-sm text-on-surface-variant">m.chen@unismart.edu</td>
+              <td class="px-lg py-md text-body-sm text-on-surface-variant">2024</td>
+              <td class="px-lg py-md text-right">
+                <span class="px-3 py-1 bg-error-container text-error text-[10px] font-bold rounded-full uppercase tracking-tighter">Error</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-surface-container-lowest transition-colors group">
+              <td class="px-lg py-md">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center font-bold text-xs">JB</div>
+                  <span class="font-label-md font-semibold">Jordan Banks</span>
+                </div>
+              </td>
+              <td class="px-lg py-md font-label-sm font-mono text-xs">STU-2024-042</td>
+              <td class="px-lg py-md text-body-sm text-on-surface-variant">Applied AI</td>
+              <td class="px-lg py-md text-body-sm text-on-surface-variant">j.banks@unismart.edu</td>
+              <td class="px-lg py-md text-body-sm text-on-surface-variant">2024</td>
+              <td class="px-lg py-md text-right">
+                <span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase tracking-tighter">Ready</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="p-lg bg-surface-container-low/50 border-t border-outline-variant flex justify-between items-center">
+        <p class="text-xs text-on-surface-variant">Showing 3 of 128 records</p>
+        <div class="flex gap-2">
+          <button class="p-1 rounded hover:bg-surface-container transition-colors disabled:opacity-30" disabled>
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button class="p-1 rounded hover:bg-surface-container transition-colors">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
